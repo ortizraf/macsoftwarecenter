@@ -213,7 +213,7 @@ class SQLiteHelper :NSObject {
         if let cs = cString {
             let s : String? = String(describing: cs)
             
-            if(s != nil && (s?.isEmpty)! && s != ""){
+            if(s != nil && s != ""){
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MMM dd, yyyy"

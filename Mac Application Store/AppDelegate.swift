@@ -16,7 +16,7 @@ class AppDelegate: NSViewController, NSApplicationDelegate, NSUserNotificationCe
     var organizations = [Organization]()
     var softwareInfos = [SoftwareInfo]()
     
-    let baseURL = "http://www.nextneo.com.br/macapplicationstore/macsoftwarecenter.json"
+    let baseURL = "https://raw.githubusercontent.com/ortizraf/macsoftwarecenter/master/files/macsoftwarecenter.json"
 
     func applicationWillFinishLaunching(_ notification: Notification) {
         createTable()
