@@ -28,7 +28,6 @@ class ProductDetailController: NSViewController {
     @IBOutlet weak var application_link: NSButton!
     @IBOutlet weak var application_option: NSPopUpButton!
 
-    
     var taskName = String()
     var productId = Int()
     

@@ -20,7 +20,7 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
         let productViewController = mainStoryboard.instantiateController(withIdentifier: "productViewController") as! ProductController
         return productViewController
     }
-   
+
     var taskName = String()
     var searchWord = String()
     var categoryId = Int()

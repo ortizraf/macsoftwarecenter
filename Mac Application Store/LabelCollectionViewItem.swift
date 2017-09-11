@@ -25,10 +25,11 @@ class LabelCollectionViewItem: NSCollectionViewItem {
             application_label_name.stringValue = (buildProduct?.name)!
             
             if((buildProduct?.url_image?.contains("http"))! && (buildProduct?.url_image?.contains("png"))!){
-                let url = URL(string: (buildProduct?.url_image)!)
-                let image = NSImage(byReferencing: url!)
-                image.cacheMode = NSImageCacheMode.always
-                application_imageview_image.image=image
+                
+                application_imageview_image.image = NSImage(named: "no-image")
+                if let checkedUrl = URL(string: (buildProduct?.url_image)!) {
+                    downloadImage(url: checkedUrl)
+                }
             } else {
                 let image = buildProduct?.url_image
                 application_imageview_image.image = NSImage(named: image!)
@@ -45,6 +46,25 @@ class LabelCollectionViewItem: NSCollectionViewItem {
             application_category.stringValue = (buildProduct?.category?.name)!
 
         }
+    }
+    
+    func downloadImage(url: URL) {
+        print("Download Started", url)
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished", url)
+            DispatchQueue.main.async() { () -> Void in
+                self.application_imageview_image.image = NSImage(data: data)
+            }
+        }
+    }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
     }
 
     override func viewDidLoad() {
