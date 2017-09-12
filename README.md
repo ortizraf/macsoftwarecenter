@@ -3,7 +3,7 @@ Mac Software Center is free software designed to help users find software in one
 
 # Requirements
 <ul>
-<li>Supports macOS 10.12 or greater.</li>
+<li>Supports macOS 10.10 or greater.</li>
 </ul>
 
 # Info
