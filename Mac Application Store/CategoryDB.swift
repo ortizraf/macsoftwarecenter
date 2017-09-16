@@ -55,7 +55,7 @@ class CategoryDB {
     
     func getAllCategory() -> Array<Category> {
         var categories : Array<Category> = []
-        let stmt = db.query("SELECT * FROM category WHERE active = 1 ")
+        let stmt = db.query("SELECT * FROM category WHERE active = 1 order by category.name asc")
         while (db.nextRow(stmt)){
             let c = Category()
             c.id = db.getInt(stmt, index: 0)

@@ -25,6 +25,7 @@ class WindowController: NSWindowController, NSToolbarDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         
+        
     }
     
     override func awakeFromNib() {
@@ -166,6 +167,17 @@ class WindowController: NSWindowController, NSToolbarDelegate {
     
     func modifySegmentsControl(active: Bool ,segmentIndex: Int){
         segmentedControl?.setEnabled(active, forSegment: segmentIndex)
+    }
+    
+    
+    @IBAction func btnTouchBarFeatured(sender: AnyObject){
+        print("Touchbar Button featured pressed 👍 ")
+        actionToProductController()
+    }
+    
+    @IBAction func btnTouchBarCategories(sender: AnyObject){
+        print("Touchbar Button categories pressed 👍 ")
+        actionToCategoriesController()
     }
 
 }

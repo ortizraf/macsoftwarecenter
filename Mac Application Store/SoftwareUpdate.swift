@@ -14,6 +14,13 @@ class SoftwareUpdateController: NSViewController {
     @IBOutlet weak var software_version: NSTextField!
     @IBOutlet weak var software_description: NSTextField!
     @IBOutlet weak var software_button_download: NSButton!
+    
+    static func instantiate() -> SoftwareUpdateController {
+        let mainStoryboard: NSStoryboard = NSStoryboard(name: "Main", bundle: nil)
+        let updateViewController = mainStoryboard.instantiateController(withIdentifier: "updateViewController") as! SoftwareUpdateController
+        
+        return updateViewController
+    }
 
     
     var softwareInfo : SoftwareInfo? = SoftwareInfo()
@@ -24,6 +31,24 @@ class SoftwareUpdateController: NSViewController {
         getLastUpdateSoftware()
         showInformation();
         
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        layoutWindowPopup();
+
+    }
+    
+    func layoutWindowPopup(){
+        self.view.window?.titleVisibility = NSWindowTitleVisibility.hidden
+        self.view.window?.titlebarAppearsTransparent = true
+        
+        self.view.window?.styleMask.remove(.resizable)
+        
+        self.view.window?.styleMask.insert(.fullSizeContentView)
+        self.view.window?.styleMask.insert(.closable)
+
     }
     
     @IBAction func btnDownload(sender: AnyObject){
@@ -83,7 +108,7 @@ class SoftwareUpdateController: NSViewController {
             let fileUrl = fileDirectory.appendingPathComponent(fileName!, isDirectory: false)
             
             try? data.write(to: fileUrl)
-
+ 
             self.software_button_download.isEnabled = true
             self.software_button_download.title = "Download"
             
@@ -92,6 +117,7 @@ class SoftwareUpdateController: NSViewController {
             let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
             if let dirPath          = paths.first{
                 NSWorkspace.shared().selectFile(nil, inFileViewerRootedAtPath: dirPath)
+                NSWorkspace.shared().openFile("/Applications")
             }
             NSApplication.shared().terminate(self)
             

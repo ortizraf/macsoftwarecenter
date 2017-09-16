@@ -51,6 +51,7 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
         } else {
             self.applications = dbApp.getAllApps()
         }
+
                 
     }
     

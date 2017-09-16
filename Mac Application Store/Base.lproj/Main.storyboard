@@ -2,10 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment version="1070" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="12062"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+        <capability name="the Touch Bar" message="Use a version of macOS with Touch Bar support." minToolsVersion="8.1" minSystemVersion="10.12.1" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -18,15 +20,13 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Mac Software Center" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Mac Software Center" id="5kV-Vb-QxS">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="About Mac Software Center" keyEquivalent="a" id="5kV-Vb-QxS">
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                                 <segue destination="bvo-Am-pK6" kind="show" id="28k-ap-40g"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Check For Update..." id="qEP-fc-k14">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="Check For Update..." keyEquivalent="u" id="qEP-fc-k14">
                                             <connections>
                                                 <segue destination="cR5-S3-Tkb" kind="show" id="Od1-zg-XvQ"/>
                                             </connections>
@@ -198,6 +198,49 @@
                             </connections>
                         </toolbar>
                     </window>
+                    <touchBar key="touchBar" id="PQT-Wz-4Ye">
+                        <touchBarItems>
+                            <touchBarGroupItem id="gvW-hF-X4N">
+                                <touchBar key="groupTouchBar" id="ZwP-7B-JXy">
+                                    <touchBarItems>
+                                        <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="6lv-cU-3PJ"/>
+                                        <touchBarItem id="3QE-6B-XNf">
+                                            <viewController key="viewController" id="LBS-RM-pKc">
+                                                <button key="view" identifier="touchbar_button_featured" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7li-vr-VyB" userLabel="Featured">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                                    <buttonCell key="cell" type="push" title="Featured" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Jm-NF-9D8" userLabel="Featured">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" usesAppearanceFont="YES"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="btnTouchBarFeaturedWithSender:" target="B8D-0N-5wS" id="H94-wT-gFZ"/>
+                                                    </connections>
+                                                </button>
+                                            </viewController>
+                                            <size key="designTimeSize" width="150" height="30"/>
+                                        </touchBarItem>
+                                        <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFixedSpaceLarge" id="3Bq-dL-kry"/>
+                                        <touchBarItem id="5ik-BC-2Oh">
+                                            <viewController key="viewController" id="89L-Vy-3EM">
+                                                <button key="view" identifier="touchbar_button_categories" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ws4-ar-ocB" userLabel="Categories">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                                    <buttonCell key="cell" type="push" title="Categories" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="28G-z2-flr" userLabel="Categories">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" usesAppearanceFont="YES"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="btnTouchBarCategoriesWithSender:" target="B8D-0N-5wS" id="pkh-0v-oD1"/>
+                                                    </connections>
+                                                </button>
+                                            </viewController>
+                                            <size key="designTimeSize" width="150" height="30"/>
+                                        </touchBarItem>
+                                        <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="4lP-Zr-U8l"/>
+                                    </touchBarItems>
+                                </touchBar>
+                            </touchBarGroupItem>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
                         <outlet property="segmentedControl" destination="3RY-8Z-g1H" id="H9L-QL-pIW"/>
                         <outlet property="spinnerView" destination="qmb-CH-uST" id="m79-g2-EgC"/>
@@ -206,6 +249,7 @@
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="sdc-I2-GGq" customClass="TouchBarController" customModule="Mac_Software_Center" customModuleProvider="target"/>
                 <segmentedCell controlSize="small" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="J3R-fI-Xeb">
                     <font key="font" metaFont="smallSystem"/>
                     <segments>
@@ -333,7 +377,7 @@
         <!--Software Update Controller-->
         <scene sceneID="QwP-8h-0PF">
             <objects>
-                <viewController showSeguePresentationStyle="single" id="Pd9-rF-h2G" customClass="SoftwareUpdateController" customModule="Mac_Software_Center" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="updateViewController" showSeguePresentationStyle="single" id="Pd9-rF-h2G" customClass="SoftwareUpdateController" customModule="Mac_Software_Center" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="mnf-qZ-HYh">
                         <rect key="frame" x="0.0" y="0.0" width="550" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -532,7 +576,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="865" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
-                                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="S2J-SR-GkR">
+                                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="W3S-WU-xw0">
                                                 <rect key="frame" x="0.0" y="18" width="865" height="5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </box>
@@ -794,7 +838,7 @@
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <subviews>
                                                                         <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="7Pi-Vw-a3c">
-                                                                            <rect key="frame" x="-5" y="-1" width="177" height="5"/>
+                                                                            <rect key="frame" x="-5" y="-1" width="177" height="4"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         </box>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkN-Ry-m04">
