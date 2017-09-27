@@ -15,26 +15,6 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         actionToHomeController()
-        
-        checkForUpdate()
-
-    }
-    
-    func checkForUpdate(){
-        
-        print("check for update... ")
-       
-        var softwareInfo : SoftwareInfo? = SoftwareInfo()
-        
-        let dbSoftwareInfo = SoftwareInfoDB()
-        softwareInfo =  dbSoftwareInfo.getLastSoftwareInfo()
-        
-        let applicationVersionBuild = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
-        
-        if(softwareInfo != nil && (softwareInfo?.versionBuild)! > Int(applicationVersionBuild!)!){
-            let softwareUpdateView = SoftwareUpdateController.instantiate()
-            self.presentViewControllerAsModalWindow(softwareUpdateView)
-        }
 
     }
     

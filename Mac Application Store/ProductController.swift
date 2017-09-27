@@ -51,8 +51,28 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
         } else {
             self.applications = dbApp.getAllApps()
         }
+        
+        checkForUpdate()
 
                 
+    }
+    
+    func checkForUpdate(){
+        
+        print("check for update... ")
+        
+        var softwareInfo : SoftwareInfo? = SoftwareInfo()
+        
+        let dbSoftwareInfo = SoftwareInfoDB()
+        softwareInfo =  dbSoftwareInfo.getLastSoftwareInfo()
+        
+        let applicationVersionBuild = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        
+        if(softwareInfo != nil && (softwareInfo?.versionBuild)! > Int(applicationVersionBuild!)!){
+            let softwareUpdateView = SoftwareUpdateController.instantiate()
+            self.presentViewControllerAsModalWindow(softwareUpdateView)
+        }
+        
     }
     
     func clickCategoriesButton(){
