@@ -8,6 +8,7 @@ Mac Software Center is free software designed to help users find software in one
 
 # Info
 <img src="https://ortizraf.github.io/macsoftwarecenter/images/software_v0.0.1_img_2.png" alt="Mac Software Center" height="400" />
+<img src="https://ortizraf.github.io/macsoftwarecenter/images/software_v0.0.1_img_5.png" alt="Mac Software Center" height="400" />
 <img src="https://ortizraf.github.io/macsoftwarecenter/images/software_v0.0.1_img_3.png" alt="Mac Software Center" height="400" />
 <img src="https://ortizraf.github.io/macsoftwarecenter/images/software_v0.0.1_img_4.png" alt="Mac Software Center" height="400" />
 

@@ -209,9 +209,9 @@ class ProductDetailController: NSViewController {
         print("Mouse Exited")
         
         let pstyle = NSMutableParagraphStyle()
-        application_button_category.attributedTitle = NSAttributedString(string: application_button_category.title, attributes: [ NSForegroundColorAttributeName : NSColor.black, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
-        application_button_organization.attributedTitle = NSAttributedString(string: application_button_organization.title, attributes: [ NSForegroundColorAttributeName : NSColor.black, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
-        application_button_website_link.attributedTitle = NSAttributedString(string: application_button_website_link.title, attributes: [ NSForegroundColorAttributeName : NSColor.black, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 13), NSFontSizeAttribute: 13 ])
+        application_button_category.attributedTitle = NSAttributedString(string: application_button_category.title, attributes: [ NSForegroundColorAttributeName : NSColor.secondaryLabelColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
+        application_button_organization.attributedTitle = NSAttributedString(string: application_button_organization.title, attributes: [ NSForegroundColorAttributeName : NSColor.secondaryLabelColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
+        application_button_website_link.attributedTitle = NSAttributedString(string: application_button_website_link.title, attributes: [ NSForegroundColorAttributeName : NSColor.secondaryLabelColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 13), NSFontSizeAttribute: 13 ])
     }
     override func mouseEntered(with event: NSEvent) {
         print("Mouse Entered")
@@ -219,13 +219,13 @@ class ProductDetailController: NSViewController {
         let pstyle = NSMutableParagraphStyle()
         
         if(event.trackingArea?.rect.equalTo((application_button_category.trackingAreas.first?.rect)!))!{
-            application_button_category.attributedTitle = NSAttributedString(string: application_button_category.title, attributes: [ NSForegroundColorAttributeName : NSColor.blue, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
+            application_button_category.attributedTitle = NSAttributedString(string: application_button_category.title, attributes: [ NSForegroundColorAttributeName : NSColor.linkColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
         }
         if(event.trackingArea?.rect.equalTo((application_button_organization.trackingAreas.first?.rect)!))!{
-            application_button_organization.attributedTitle = NSAttributedString(string: application_button_organization.title, attributes: [ NSForegroundColorAttributeName : NSColor.blue, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
+            application_button_organization.attributedTitle = NSAttributedString(string: application_button_organization.title, attributes: [ NSForegroundColorAttributeName : NSColor.linkColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
         }
         if(event.trackingArea?.rect.equalTo((application_button_website_link.trackingAreas.first?.rect)!))!{
-            application_button_website_link.attributedTitle = NSAttributedString(string: application_button_website_link.title, attributes: [ NSForegroundColorAttributeName : NSColor.blue, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 13), NSFontSizeAttribute: 13,             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleDouble.rawValue as AnyObject ])
+            application_button_website_link.attributedTitle = NSAttributedString(string: application_button_website_link.title, attributes: [ NSForegroundColorAttributeName : NSColor.linkColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 13), NSFontSizeAttribute: 13,             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleDouble.rawValue as AnyObject ])
         }
     }
 
