@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment version="101000" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14215.3"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="18009"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
@@ -119,8 +119,14 @@
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="xxV-T1-VJ1"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="WNm-gH-deM"/>
-                                <toolbarItem implicitItemIdentifier="46E0EEA5-3083-496F-B684-8100F33BF430" explicitItemIdentifier="NSToolbarFeatured" label="Featured" paletteLabel="Featured" image="FeaturedIcon" id="y9c-IN-Ds9"/>
-                                <toolbarItem implicitItemIdentifier="D5011364-8D12-4C97-A47B-4F76A644ED17" explicitItemIdentifier="NSToolbarCategories" label="Categories" paletteLabel="Categories" tag="1" image="CategoriesIcon" id="RUR-wZ-edB"/>
+                                <toolbarItem implicitItemIdentifier="46E0EEA5-3083-496F-B684-8100F33BF430" explicitItemIdentifier="NSToolbarFeatured" label="Featured" paletteLabel="Featured" image="FeaturedIcon" id="y9c-IN-Ds9">
+                                    <size key="minSize" width="22" height="22"/>
+                                    <size key="maxSize" width="22" height="22"/>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="D5011364-8D12-4C97-A47B-4F76A644ED17" explicitItemIdentifier="NSToolbarCategories" label="Categories" paletteLabel="Categories" tag="1" image="CategoriesIcon" id="RUR-wZ-edB">
+                                    <size key="minSize" width="22" height="22"/>
+                                    <size key="maxSize" width="22" height="22"/>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="0E71A446-0201-429D-BD74-33A2B86B4D07" label="Custom View" paletteLabel="Custom View" id="6v7-cF-dCB">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="48" height="48"/>
@@ -486,7 +492,7 @@
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="tLb-3G-lCG">
                                 <rect key="frame" x="0.0" y="0.0" width="893" height="650"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="tic-BV-1mp">
+                                <clipView key="contentView" copiesOnScroll="NO" id="tic-BV-1mp">
                                     <rect key="frame" x="1" y="1" width="891" height="648"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -508,11 +514,11 @@
                             <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="dZA-RP-uxm">
                                 <rect key="frame" x="14" y="0.0" width="879" height="590"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="Vea-rD-pUi">
+                                <clipView key="contentView" copiesOnScroll="NO" id="Vea-rD-pUi">
                                     <rect key="frame" x="0.0" y="0.0" width="879" height="590"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView ambiguous="YES" selectable="YES" id="M7B-hQ-FTG">
+                                        <collectionView selectable="YES" id="M7B-hQ-FTG">
                                             <rect key="frame" x="0.0" y="0.0" width="879" height="590"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10">
@@ -539,7 +545,7 @@
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mi-MM-IYg">
                                 <rect key="frame" x="892" y="0.0" width="208" height="650"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="MLB-WJ-NL2">
+                                <clipView key="contentView" id="MLB-WJ-NL2">
                                     <rect key="frame" x="0.0" y="0.0" width="208" height="650"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -625,7 +631,7 @@
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="ffN-JH-O3J">
                                 <rect key="frame" x="0.0" y="0.0" width="893" height="650"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="Ogv-wp-m8n">
+                                <clipView key="contentView" copiesOnScroll="NO" id="Ogv-wp-m8n">
                                     <rect key="frame" x="1" y="1" width="891" height="648"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -647,11 +653,11 @@
                             <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="3w7-sM-I9G">
                                 <rect key="frame" x="14" y="0.0" width="879" height="590"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="V3Q-Wh-dMl">
+                                <clipView key="contentView" copiesOnScroll="NO" id="V3Q-Wh-dMl">
                                     <rect key="frame" x="0.0" y="0.0" width="879" height="590"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView ambiguous="YES" selectable="YES" id="BTt-Gx-Pgy">
+                                        <collectionView selectable="YES" id="BTt-Gx-Pgy">
                                             <rect key="frame" x="0.0" y="0.0" width="879" height="590"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10">
@@ -678,7 +684,7 @@
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-mX-AEr">
                                 <rect key="frame" x="892" y="0.0" width="208" height="650"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="x7b-zH-JT2">
+                                <clipView key="contentView" id="x7b-zH-JT2">
                                     <rect key="frame" x="0.0" y="0.0" width="208" height="650"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -763,7 +769,7 @@
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="TSO-Lt-TpT">
                                 <rect key="frame" x="0.0" y="0.0" width="893" height="650"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="Oo6-h5-Ih4">
+                                <clipView key="contentView" copiesOnScroll="NO" id="Oo6-h5-Ih4">
                                     <rect key="frame" x="1" y="1" width="891" height="648"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -823,7 +829,7 @@
                                                                 <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="3hD-ON-MIU">
                                                                     <rect key="frame" x="0.0" y="20" width="630" height="359"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                    <view key="contentView" ambiguous="YES" id="zry-JW-LnL">
+                                                                    <view key="contentView" id="zry-JW-LnL">
                                                                         <rect key="frame" x="1" y="1" width="628" height="357"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
@@ -1054,7 +1060,7 @@
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-vq-KOG">
                                 <rect key="frame" x="892" y="0.0" width="208" height="650"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="D4D-7F-8GN">
+                                <clipView key="contentView" id="D4D-7F-8GN">
                                     <rect key="frame" x="0.0" y="0.0" width="208" height="650"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1105,7 +1111,7 @@
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRf-jp-2wc">
                                 <rect key="frame" x="892" y="0.0" width="208" height="650"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="ozC-Hg-w42">
+                                <clipView key="contentView" copiesOnScroll="NO" id="ozC-Hg-w42">
                                     <rect key="frame" x="0.0" y="0.0" width="208" height="650"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1140,11 +1146,11 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" arrowsPosition="none" horizontal="YES" id="neo-dm-v5i">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="neo-dm-v5i">
                                     <rect key="frame" x="-100" y="-100" width="208" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" arrowsPosition="none" doubleValue="1" horizontal="NO" id="A0j-uy-m9H">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="A0j-uy-m9H">
                                     <rect key="frame" x="-100" y="-100" width="15" height="635"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1157,11 +1163,11 @@
                             <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-B1-CLH">
                                 <rect key="frame" x="0.0" y="2" width="892" height="648"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="Pum-Uh-dWR">
+                                <clipView key="contentView" copiesOnScroll="NO" id="Pum-Uh-dWR">
                                     <rect key="frame" x="0.0" y="0.0" width="892" height="648"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView ambiguous="YES" selectable="YES" id="Nbg-Xo-MtJ">
+                                        <collectionView selectable="YES" id="Nbg-Xo-MtJ">
                                             <rect key="frame" x="0.0" y="0.0" width="892" height="648"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout">
@@ -1198,12 +1204,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ApplicationIcon" width="122.87999725341797" height="122.87999725341797"/>
-        <image name="CategoriesIcon" width="25.600000381469727" height="25.600000381469727"/>
-        <image name="FeaturedIcon" width="25.600000381469727" height="25.600000381469727"/>
-        <image name="NSApplicationIcon" width="128" height="128"/>
-        <image name="NSGoLeftTemplate" width="9" height="12"/>
-        <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="ApplicationIcon" width="512" height="512"/>
+        <image name="CategoriesIcon" width="1600" height="1600"/>
+        <image name="FeaturedIcon" width="1600" height="1600"/>
+        <image name="NSApplicationIcon" width="32" height="32"/>
+        <image name="NSGoLeftTemplate" width="10" height="14"/>
+        <image name="NSGoRightTemplate" width="10" height="14"/>
         <image name="no-image" width="128" height="127"/>
     </resources>
 </document>
