@@ -60,12 +60,12 @@ class AppDB {
                 //Insert
                 let sql = "insert or replace into app (name, url_image, download_link, category_id, is_active, desc, version, last_update, organization_id, website, order_by, file_format) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);"
                 let params : [Any] = [app.name, app.url_image, app.download_link, app.category?.id, is_active, app.description, app.version, app.last_update_text, organizationId, app.website, app.order_by, app.file_format]
-                let id = db.execSql(sql, params:params as Array<AnyObject>!)
+                let id = db.execSql(sql, params:params as Array<AnyObject>?)
             } else {
                 //Update
                 let sql = "update app (set name=?, url_image=?, download_link=?, category_id=?, is_active=?, desc=?, version=?, last_update=?, organization_id=?, website=?, order_by=?, file_format=? where id=? VALUES (?,?,?,?,?,?,?,?,?,?,?,?));"
                 let params : [Any] = [app.name, app.url_image, app.download_link, app.category?.id, is_active, app.description, app.version, app.last_update_text, organizationId, app.id, app.website, app.order_by, app.file_format]
-                let id = db.execSql(sql, params:params as Array<AnyObject>!)
+                let id = db.execSql(sql, params:params as Array<AnyObject>?)
             }
         }
     }

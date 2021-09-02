@@ -43,7 +43,7 @@ class SoftwareInfoDB {
         let sql = "insert or replace into software_info (id, version, version_build, date_update, desc, download_link, information_link, license_link) VALUES (?,?,?,?,?,?,?,?);"
         
         let params : [Any] = [softwareInfo.id, softwareInfo.version, softwareInfo.versionBuild, softwareInfo.date_update_text, softwareInfo.description, softwareInfo.download_link, softwareInfo.information_link, softwareInfo.license_link]
-        let id = db.execSql(sql, params:params as Array<AnyObject>!)
+        let id = db.execSql(sql, params:params as Array<AnyObject>?)
     }
     
     func getLastSoftwareInfo() -> SoftwareInfo? {

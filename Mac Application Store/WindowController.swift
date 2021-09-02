@@ -55,11 +55,11 @@ class WindowController: NSWindowController, NSToolbarDelegate {
             //toolbarItemView.label = "xx"
             toolbarItemView.isEnabled = true
             toolbarItemView.target = self
-            if(toolbarItemView.itemIdentifier=="NSToolbarCategories"){
+            if((toolbarItemView.itemIdentifier as? String) == "NSToolbarCategories"){
                 toolbarItemView.action = Selector("actionToCategoriesController")
-            } else if (toolbarItemView.itemIdentifier=="NSToolbarFeatured"){
+            } else if ((toolbarItemView.itemIdentifier as? String) == "NSToolbarFeatured"){
                 toolbarItemView.action = Selector("actionToProductController")
-            } else if (toolbarItemView.itemIdentifier=="NSSearchFieldCustom"){
+            } else if ((toolbarItemView.itemIdentifier as? String) == "NSSearchFieldCustom"){
                 //toolbarItemView.action = Selector("fieldTextDidChange:")
             }
 
@@ -80,7 +80,7 @@ class WindowController: NSWindowController, NSToolbarDelegate {
             view.removeFromSuperview()
         }
         
-        self.viewController.insertChildViewController(getViewController, at: 0)
+        self.viewController.insertChild(getViewController, at: 0)
         self.viewController.view.addSubview(getViewController.view)
         self.viewController.view.frame = getViewController.view.frame
         
@@ -101,7 +101,7 @@ class WindowController: NSWindowController, NSToolbarDelegate {
             view.removeFromSuperview()
         }
         
-        self.viewController.insertChildViewController(getViewController, at: 0)
+        self.viewController.insertChild(getViewController, at: 0)
         self.viewController.view.addSubview(getViewController.view)
         self.viewController.view.frame = getViewController.view.frame
         
@@ -124,7 +124,7 @@ class WindowController: NSWindowController, NSToolbarDelegate {
             view.removeFromSuperview()
         }
         
-        self.viewController.insertChildViewController(getViewController, at: 0)
+        self.viewController.insertChild(getViewController, at: 0)
         self.viewController.view.addSubview(getViewController.view)
         self.viewController.view.frame = getViewController.view.frame
         
@@ -138,7 +138,7 @@ class WindowController: NSWindowController, NSToolbarDelegate {
         if (!(sender?.stringValue.isEmpty)!) {
             print("Searched: \(sender?.stringValue)")
             var searchWord = sender?.stringValue
-            if((searchWord?.characters.count)!>3){
+            if((searchWord?.count)!>3){
                 actionToSearchProductController(searchWord: searchWord)
             }
         } else {

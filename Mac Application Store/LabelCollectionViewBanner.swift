@@ -22,7 +22,7 @@ class LabelCollectionViewBanner: NSCollectionViewItem {
             if((buildBanner?.url_image?.contains("http"))! && (buildBanner?.url_image?.contains("png"))!){
                 let url = URL(string: (buildBanner?.url_image)!)
                 let image = NSImage(byReferencing: url!)
-                image.cacheMode = NSImageCacheMode.always
+                image.cacheMode = NSImage.CacheMode.always
                 banner_imageview_image.image=image
             } else {
                 let image = buildBanner?.url_image

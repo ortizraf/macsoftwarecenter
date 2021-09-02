@@ -49,7 +49,7 @@ class CategoryDB {
         }
         
         let params : [Any] = [category.id, category.name, active]
-        let id = db.execSql(sql, params:params as Array<AnyObject>!)
+        let id = db.execSql(sql, params:params as Array<AnyObject>?)
     }
 
     

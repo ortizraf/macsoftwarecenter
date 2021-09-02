@@ -43,7 +43,7 @@ class StringUtils {
         if(s == nil) {
             return 0
         }
-        let length = s.characters.count
+        let length = s.count
         return length
     }
     

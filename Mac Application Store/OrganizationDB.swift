@@ -44,7 +44,7 @@ class OrganizationDB {
         let sql = "insert or replace into organization (id, name) VALUES (?,?);"
         
         let params : [Any] = [organization.id, organization.name]
-        let id = db.execSql(sql, params:params as Array<AnyObject>!)
+        let id = db.execSql(sql, params:params as Array<AnyObject>?)
     }
     
     

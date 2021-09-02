@@ -38,12 +38,12 @@ class AboutController: NSViewController {
     
     @IBAction func btnInformationLink(sender: AnyObject){
         print("Button pressed Information Link ")
-        NSWorkspace.shared().open(URL(string: (softwareInfo?.information_link!)!)!)
+        NSWorkspace.shared.open(URL(string: (softwareInfo?.information_link!)!)!)
     }
 
     @IBAction func btnLicenseLink(sender: AnyObject){
         print("Button pressed License Link ")
-        NSWorkspace.shared().open(URL(string: (softwareInfo?.license_link!)!)!)
+        NSWorkspace.shared.open(URL(string: (softwareInfo?.license_link!)!)!)
     }
 
 

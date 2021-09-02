@@ -57,7 +57,7 @@ class HomeController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: "LabelCollectionViewBanner", for: indexPath) as! LabelCollectionViewBanner
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LabelCollectionViewBanner") , for: indexPath) as! LabelCollectionViewBanner
         
         item.buildBanner = banners?[indexPath.item]
         
@@ -69,7 +69,7 @@ class HomeController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
         
         for indexPath in indexPaths {
             
-            let item = collectionView.makeItem(withIdentifier: "LabelCollectionViewBanner", for: indexPath) as! LabelCollectionViewBanner
+            let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LabelCollectionViewBanner") , for: indexPath) as! LabelCollectionViewBanner
             item.buildBanner = banners?[indexPath.item]
             
             getBannerSelected(item)
@@ -101,7 +101,7 @@ class HomeController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             view.removeFromSuperview()
         }
         
-        self.insertChildViewController(productViewController, at: 0)
+        self.insertChild(productViewController, at: 0)
         self.view.addSubview(productViewController.view)
         self.view.frame = productViewController.view.frame
         
@@ -126,7 +126,7 @@ class HomeController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             view.removeFromSuperview()
         }
         
-        self.insertChildViewController(productViewController, at: 0)
+        self.insertChild(productViewController, at: 0)
         self.view.addSubview(productViewController.view)
         self.view.frame = productViewController.view.frame
         
@@ -148,7 +148,7 @@ class HomeController: NSViewController, NSCollectionViewDelegate, NSCollectionVi
             view.removeFromSuperview()
         }
         
-        self.insertChildViewController(categoriesViewController, at: 0)
+        self.insertChild(categoriesViewController, at: 0)
         self.view.addSubview(categoriesViewController.view)
         self.view.frame = categoriesViewController.view.frame
         

@@ -25,7 +25,7 @@ class ViewController: NSViewController {
         let mainStoryboard: NSStoryboard = NSStoryboard(name: "Main", bundle: nil)
         let productViewController = mainStoryboard.instantiateController(withIdentifier: "homeViewController") as! HomeController
     
-        self.insertChildViewController(productViewController, at: 0)
+        self.insertChild(productViewController, at: 0)
         self.view.addSubview(productViewController.view)
         self.view.frame = productViewController.view.frame
     

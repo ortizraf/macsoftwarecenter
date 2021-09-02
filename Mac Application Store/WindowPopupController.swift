@@ -13,7 +13,7 @@ class WindowPopupController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        window?.titleVisibility = NSWindowTitleVisibility.hidden;
+        window?.titleVisibility = NSWindow.TitleVisibility.hidden;
         window?.titlebarAppearsTransparent = true;        
         
     }

@@ -47,7 +47,7 @@ class ProductDetailController: NSViewController {
             if((application.url_image?.contains("http"))! && (application.url_image?.contains(".png"))!){
                 let url = URL(string: (application.url_image)!)
                 let image = NSImage(byReferencing: url!)
-                image.cacheMode = NSImageCacheMode.always
+                image.cacheMode = NSImage.CacheMode.always
                 application_imageview_image.image=image
             } else {
                 application_imageview_image.image = NSImage(named: (application.url_image)!)
@@ -100,7 +100,7 @@ class ProductDetailController: NSViewController {
     
     @IBAction func clickActionToWebsiteController(sender: AnyObject) {
         print("click button Website")
-        NSWorkspace.shared().open(URL(string: application.website!)!)
+        NSWorkspace.shared.open(URL(string: application.website!)!)
     }
     
     func actionToOrganizationController(taskName: String) {
@@ -120,7 +120,7 @@ class ProductDetailController: NSViewController {
             view.removeFromSuperview()
         }
         
-        self.insertChildViewController(productViewController, at: 0)
+        self.insertChild(productViewController, at: 0)
         self.view.addSubview(productViewController.view)
         self.view.frame = productViewController.view.frame
         
@@ -143,13 +143,13 @@ class ProductDetailController: NSViewController {
         
         if(selectedNumber==0){
             
-            if let url = URL(string: (application.download_link)!), NSWorkspace.shared().open(url) {
+            if let url = URL(string: (application.download_link)!), NSWorkspace.shared.open(url) {
                 print("default browser was successfully opened")
             }
         } else if (selectedNumber==1) {
-            let pasteBoard = NSPasteboard.general()
+            let pasteBoard = NSPasteboard.general
             pasteBoard.clearContents()
-            pasteBoard.setString((application.download_link)!, forType: NSStringPboardType)
+            pasteBoard.setString((application.download_link)!, forType: .string)
         }
         
     }
@@ -196,11 +196,11 @@ class ProductDetailController: NSViewController {
     
     //tracking buttons
     func trackingAreaButton(){
-        let areaButtonCategory = NSTrackingArea.init(rect: application_button_category.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+        let areaButtonCategory = NSTrackingArea.init(rect: application_button_category.bounds, options: [NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
         application_button_category.addTrackingArea(areaButtonCategory)
-        let areaButtonOrganization = NSTrackingArea.init(rect: application_button_organization.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+        let areaButtonOrganization = NSTrackingArea.init(rect: application_button_organization.bounds, options: [NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
         application_button_organization.addTrackingArea(areaButtonOrganization)
-        let areaButtonWebsite = NSTrackingArea.init(rect: application_button_website_link.bounds, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+        let areaButtonWebsite = NSTrackingArea.init(rect: application_button_website_link.bounds, options: [NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
         application_button_website_link.addTrackingArea(areaButtonWebsite)
 
     }
@@ -209,9 +209,9 @@ class ProductDetailController: NSViewController {
         print("Mouse Exited")
         
         let pstyle = NSMutableParagraphStyle()
-        application_button_category.attributedTitle = NSAttributedString(string: application_button_category.title, attributes: [ NSForegroundColorAttributeName : NSColor.secondaryLabelColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
-        application_button_organization.attributedTitle = NSAttributedString(string: application_button_organization.title, attributes: [ NSForegroundColorAttributeName : NSColor.secondaryLabelColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
-        application_button_website_link.attributedTitle = NSAttributedString(string: application_button_website_link.title, attributes: [ NSForegroundColorAttributeName : NSColor.secondaryLabelColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 13), NSFontSizeAttribute: 13 ])
+        application_button_category.attributedTitle = NSAttributedString(string: application_button_category.title, attributes: [ NSAttributedString.Key.foregroundColor : NSColor.secondaryLabelColor, NSAttributedString.Key.paragraphStyle : pstyle, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSFontDescriptor.AttributeName.size: 11 ] as? [NSAttributedString.Key : Any])
+        application_button_organization.attributedTitle = NSAttributedString(string: application_button_organization.title, attributes: [ NSAttributedString.Key.foregroundColor : NSColor.secondaryLabelColor, NSAttributedString.Key.paragraphStyle : pstyle, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSFontDescriptor.AttributeName.size: 11 ] as? [NSAttributedString.Key : Any])
+        application_button_website_link.attributedTitle = NSAttributedString(string: application_button_website_link.title, attributes: [ NSAttributedString.Key.foregroundColor : NSColor.secondaryLabelColor, NSAttributedString.Key.paragraphStyle : pstyle, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 13), NSFontDescriptor.AttributeName.size: 13 ] as? [NSAttributedString.Key : Any])
     }
     override func mouseEntered(with event: NSEvent) {
         print("Mouse Entered")
@@ -219,13 +219,13 @@ class ProductDetailController: NSViewController {
         let pstyle = NSMutableParagraphStyle()
         
         if(event.trackingArea?.rect.equalTo((application_button_category.trackingAreas.first?.rect)!))!{
-            application_button_category.attributedTitle = NSAttributedString(string: application_button_category.title, attributes: [ NSForegroundColorAttributeName : NSColor.linkColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
+            application_button_category.attributedTitle = NSAttributedString(string: application_button_category.title, attributes: [ NSAttributedString.Key.foregroundColor : NSColor.linkColor, NSAttributedString.Key.paragraphStyle : pstyle, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSFontDescriptor.AttributeName.size: 11 ] as? [NSAttributedString.Key : Any])
         }
         if(event.trackingArea?.rect.equalTo((application_button_organization.trackingAreas.first?.rect)!))!{
-            application_button_organization.attributedTitle = NSAttributedString(string: application_button_organization.title, attributes: [ NSForegroundColorAttributeName : NSColor.linkColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 11), NSFontSizeAttribute: 11 ])
+            application_button_organization.attributedTitle = NSAttributedString(string: application_button_organization.title, attributes: [ NSAttributedString.Key.foregroundColor : NSColor.linkColor, NSAttributedString.Key.paragraphStyle : pstyle, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 11), NSFontDescriptor.AttributeName.size: 11 ] as? [NSAttributedString.Key : Any])
         }
         if(event.trackingArea?.rect.equalTo((application_button_website_link.trackingAreas.first?.rect)!))!{
-            application_button_website_link.attributedTitle = NSAttributedString(string: application_button_website_link.title, attributes: [ NSForegroundColorAttributeName : NSColor.linkColor, NSParagraphStyleAttributeName : pstyle, NSFontAttributeName: NSFont.systemFont(ofSize: 13), NSFontSizeAttribute: 13,             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleDouble.rawValue as AnyObject ])
+            application_button_website_link.attributedTitle = NSAttributedString(string: application_button_website_link.title, attributes: [ NSAttributedString.Key.foregroundColor : NSColor.linkColor, NSAttributedString.Key.paragraphStyle : pstyle, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 13), NSFontDescriptor.AttributeName.size: 13,             NSAttributedString.Key.underlineStyle: NSUnderlineStyle.double.rawValue as AnyObject ] as? [NSAttributedString.Key : Any])
         }
     }
 

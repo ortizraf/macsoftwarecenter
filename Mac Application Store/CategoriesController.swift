@@ -55,7 +55,7 @@ class CategoriesController: NSViewController, NSCollectionViewDelegate, NSCollec
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: "LabelCollectionViewCategory", for: indexPath) as! LabelCollectionViewCategory
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LabelCollectionViewCategory") , for: indexPath) as! LabelCollectionViewCategory
         
         item.buildCategory = categories?[indexPath.item]
         
@@ -68,7 +68,7 @@ class CategoriesController: NSViewController, NSCollectionViewDelegate, NSCollec
         for indexPath in indexPaths {
             print(indexPath.description)
             
-            let item = collectionView.makeItem(withIdentifier: "LabelCollectionViewCategory", for: indexPath) as! LabelCollectionViewCategory
+            let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LabelCollectionViewCategory") , for: indexPath) as! LabelCollectionViewCategory
             item.buildCategory = categories?[indexPath.item]
 
             getCategorySelected(item)
@@ -98,7 +98,7 @@ class CategoriesController: NSViewController, NSCollectionViewDelegate, NSCollec
             view.removeFromSuperview()
         }
         
-        self.insertChildViewController(productViewController, at: 0)
+        self.insertChild(productViewController, at: 0)
         self.view.addSubview(productViewController.view)
         self.view.frame = productViewController.view.frame
         

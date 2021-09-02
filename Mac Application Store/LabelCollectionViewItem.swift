@@ -86,13 +86,13 @@ class LabelCollectionViewItem: NSCollectionViewItem {
         let selectedNumber = sender.indexOfSelectedItem
 
         if(selectedNumber==0){
-            if let url = URL(string: (self.buildProduct?.download_link)!), NSWorkspace.shared().open(url) {
+            if let url = URL(string: (self.buildProduct?.download_link)!), NSWorkspace.shared.open(url) {
                 print("default browser was successfully opened")
             }
         } else if (selectedNumber==1) {
-            let pasteBoard = NSPasteboard.general()
+            let pasteBoard = NSPasteboard.general
             pasteBoard.clearContents()
-            pasteBoard.setString((self.buildProduct?.download_link)!, forType: NSStringPboardType)
+            pasteBoard.setString((self.buildProduct?.download_link)!, forType: .string)
         }
         
     }
@@ -114,7 +114,7 @@ class LabelCollectionViewItem: NSCollectionViewItem {
             
             let fileDirectory = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask)[0]
             
-            var fileNameUrl = NSURL(fileURLWithPath: (downloadUrl?.absoluteString)!).lastPathComponent!
+            let fileNameUrl = NSURL(fileURLWithPath: (downloadUrl?.absoluteString)!).lastPathComponent!
             
             var fileName = fileNameUrl.removingPercentEncoding
             

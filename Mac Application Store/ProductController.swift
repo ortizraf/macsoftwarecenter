@@ -70,7 +70,7 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
         
         if(softwareInfo != nil && (softwareInfo?.versionBuild)! > Int(applicationVersionBuild!)!){
             let softwareUpdateView = SoftwareUpdateController.instantiate()
-            self.presentViewControllerAsModalWindow(softwareUpdateView)
+            self.presentAsModalWindow(softwareUpdateView)
         }
         
     }
@@ -86,7 +86,7 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
         actionToCategoriesController()
     }
     
-    func actionToCategoriesController(){
+    @objc func actionToCategoriesController(){
         showProgressIndicator()
         
         self.view.wantsLayer = true
@@ -97,7 +97,7 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
             view.removeFromSuperview()
         }
         
-        self.insertChildViewController(categoriesViewController, at: 0)
+        self.insertChild(categoriesViewController, at: 0)
         self.view.addSubview(categoriesViewController.view)
         self.view.frame = categoriesViewController.view.frame
         
@@ -116,7 +116,7 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
     
 
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: "LabelCollectionViewItem", for: indexPath) as! LabelCollectionViewItem
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LabelCollectionViewItem") , for: indexPath) as! LabelCollectionViewItem
         
         item.buildProduct = applications?[indexPath.item]
         
@@ -129,7 +129,7 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
         for indexPath in indexPaths {
             print(indexPath.description)
             
-            let item = collectionView.makeItem(withIdentifier: "LabelCollectionViewItem", for: indexPath) as! LabelCollectionViewItem
+            let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LabelCollectionViewItem") , for: indexPath) as! LabelCollectionViewItem
             item.buildProduct = applications?[indexPath.item]
             
             getProductSelected(item)
@@ -159,7 +159,7 @@ class ProductController: NSViewController, NSCollectionViewDelegate, NSCollectio
             view.removeFromSuperview()
         }
         
-        self.insertChildViewController(productDetailViewController, at: 0)
+        self.insertChild(productDetailViewController, at: 0)
         self.view.addSubview(productDetailViewController.view)
         self.view.frame = productDetailViewController.view.frame
                 

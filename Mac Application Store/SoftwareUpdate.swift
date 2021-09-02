@@ -41,7 +41,7 @@ class SoftwareUpdateController: NSViewController {
     }
     
     func layoutWindowPopup(){
-        self.view.window?.titleVisibility = NSWindowTitleVisibility.hidden
+        self.view.window?.titleVisibility = NSWindow.TitleVisibility.hidden
         self.view.window?.titlebarAppearsTransparent = true
         
         self.view.window?.styleMask.remove(.resizable)
@@ -116,10 +116,10 @@ class SoftwareUpdateController: NSViewController {
             let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
             let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
             if let dirPath          = paths.first{
-                NSWorkspace.shared().selectFile(nil, inFileViewerRootedAtPath: dirPath)
-                NSWorkspace.shared().openFile("/Applications")
+                NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: dirPath)
+                NSWorkspace.shared.openFile("/Applications")
             }
-            NSApplication.shared().terminate(self)
+            NSApplication.shared.terminate(self)
             
         })
         
